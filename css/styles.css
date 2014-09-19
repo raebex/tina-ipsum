@@ -1,0 +1,196 @@
+
+*, *:before, *:after {
+      -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+a, a:active, a:link, a:visited {
+  color: #1f466d;
+  text-decoration: none;
+}
+
+figure {
+  margin: 0;
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.quattrocento {
+  font-family: 'Quattrocento Sans', sans-serif;
+  line-height: 1.7rem;
+}
+
+.generator {
+  background: #fff;
+  margin-bottom: 50px;
+}
+
+.generator-content {
+  padding: 0 20px;
+}
+
+.header {
+  padding: 0 30px 30px 30px;
+  line-height: 2.5rem;
+  background: url(../images/horse.png) repeat #f5df55;
+  background-attachment: fixed;
+  position: relative;
+  height: 320px;
+  border-bottom: 8px solid #99bdf1;
+}
+
+.title {
+  font-family: 'Gloria Hallelujah', sans-serif, cursive;
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+#tina-caption {
+  font-family: 'Gloria Hallelujah', sans-serif, cursive;
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.sidebar {
+  background-color: #eee;
+}
+
+.tina-pic {
+  padding: 20px;
+}
+
+#text-area {
+  margin: 20px 0;
+}
+
+.spacer {
+  margin-bottom: 20px;
+}
+
+#para-num {
+  border-radius: 2px;
+  height: 25px;
+  width: 30px;
+  box-shadow: 0;
+  border: 1px solid #aaa;
+}
+
+#para-num.error {
+  border: 1px solid red;
+}
+
+.generator-form {
+  position: relative;
+  text-align: center;
+  margin: 60px auto;
+  width: 370px;
+}
+
+.radio {
+  margin: 20px 0;
+}
+
+.radio-button {
+  margin: 0 15px;
+}
+
+.checkboxes {
+  margin: 0 0 25px 53px;
+  text-align: left;
+}
+
+input [type="radio"]{
+  background-color: #fff;
+  border: 1px solid #aaa;
+}
+
+.error-message {
+  display: none;
+  color: red;
+  position: absolute;
+  right: 105px;
+  top: -32px;
+  font-size: 0.8rem;
+}
+
+.button {
+  border-radius: 5px;
+  height: 35px;
+  width: 150px;
+  box-shadow: 0;
+  font-size: 1rem;
+  border: 0;
+  color: #fff;
+  background-color: #1f466d;
+  cursor: pointer;
+}
+
+.button:hover{
+  background-color: #2f66a4;
+  transition: 0.3s all ease;
+}
+
+#copy-button {
+  display: none;
+  width: 200px;
+  margin-top: 20px;
+}
+
+.footer {
+  width: 100%;
+  font-size: 0.8rem;
+  padding: 10px 0;
+  background-color: #f5df55;
+  border-top: 5px solid #99bdf1;
+}
+
+@media (min-width: 768px) {
+  #tina-caption {
+    margin-bottom: 20px;
+  }
+
+  .generator-content {
+    padding: 0 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+  }
+
+  .generator {
+    width: 980px;
+    margin: 0 auto;
+    padding: 20px 20px 50px;
+  }
+
+  .generator-content {
+    width: 70%;
+    float: right;
+  }
+
+  .generator-form {
+    margin-top: 30px;
+  }
+
+  .sidebar {
+    width: 30%;
+    float: left;
+    border-radius: 5px;
+  }
+
+  .error-message {
+  right: 76px;
+  top: -7px;
+  }
+}
