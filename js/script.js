@@ -4,6 +4,8 @@
 
 	//references
 	var $generate_button = $('#generate-button');
+	var $copy_button = $('#copy-button');
+	var $confirm_copy = $('#confirm-copy');
 	var $para_num = $('#para-num');
 	var $text_area = $('#text-area');
 	var $error_message = $('#error-message');
@@ -20,44 +22,50 @@
 
 		var length = $para_num.val();
 		var para_length = $radio_section.find('input[name=para-length]:checked').val();
-		var extras = $checkbox_section.find('input[name=extras]:checked').val();
+		var extras = $checkbox_section.find('input[name=hi-boys]:checked').val();
 
+		if ($('#extra-sass').is(':checked')){
+			para_length = 15;
+		}
 		if (isNaN(length) || length === ""){
 			$para_num.addClass('error');
 			$error_message.fadeIn('fast');
 		}else {
 			$text_area.empty();
 			generate_paragraph(length, para_length, extras);
+			$copy_button.fadeIn();
+			$confirm_copy.fadeOut();
 		}
 		
 	});
 
-	var generate_paragraph = function(length, para_length, extras){
+	var generate_paragraph = function(length, para_length, extras, quotes_length){
+		var quip;
 		for (var i = length; i > 0; i--){
-			generate_text(para_length, extras);
+			if (i === length && extras === "hi-boys"){
+				quip = "Hi boys. I'm Tina. ";
+			}else{
+				quip = '';
+			}
+			generate_text(para_length, extras, quip, quotes_length);
 		}
 	}
 
-	var generate_text = function(para_length, extras){	
+	var generate_text = function(para_length, extras, quip, quotes_length){	
 		var holder = $('<p>');
-
-		//extras
-		if (extras === "hi-boys") { 
-			holder.prepend("Hi boys. I'm Tina. ");
-		}
-		if (extras === "extra-sass"){
-			var bonus_quote = bonus[Math.floor(Math.random()*bonus.length)];
-			holder.prepend(bonus_quote + " ");
-		}
-
 		for (var i = 0; i < para_length; i++){
+
 			//randomize through the array
-			var random = quotes[Math.floor(Math.random()*quotes.length)];
-			holder.append(random + " ");
+			if (i === 0){
+				holder.prepend(quip);
+			}else {
+				var random = quotes[Math.floor(Math.random()*quotes.length)]; 
+				holder.append(random + " ");
 
-			holder.addClass('spacer');
+				holder.addClass('spacer');
 
-			$text_area.prepend(holder);
+			}
+			$text_area.append(holder);
 		}
 	}
 
@@ -73,17 +81,14 @@
 		"Here's a bunch of numbers. They may look random but they're my phone number."
 	]
 
-	var bonus = [
+	var quotes = [
 		"If we see any mermaids, I'm gonna ask them where their merginas are.",
 		"Follow me fellas...Lets go somewhere where the sixteen of us can be alone.",
 		"Everyone began to touch each other's butts.",
 		"There is one place I like to go. The boys' locker room. You can only see up to their ankles.",
 		"Chad the Zombie touched the butt of that girl with the frosted hair from my art class. I think her name is Kristi.",
 		"And I'm gonna read it to the whole school myself.",
-		"This is such a snore-gasm."
-	]
-
-	var quotes = [
+		"This is such a snore-gasm.",
 		"This is like watching two monkeys at the puberty zoo.",
 		"I texted back a smiley face. She texted back some letters I don't understand.",
 		"Tina reached towards Jimmy Junior's butt: 'Your lips say no but your butt says yes.'",

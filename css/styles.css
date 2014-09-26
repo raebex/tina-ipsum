@@ -137,6 +137,15 @@ input [type="radio"]{
   transition: 0.3s all ease;
 }
 
+.copy-section {
+  text-align: center;
+}
+
+#confirm-copy {
+  display: none;
+  color: #1f466d;
+}
+
 #copy-button {
   display: none;
   width: 200px;
